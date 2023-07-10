@@ -18,19 +18,77 @@ final class TakeItTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testUserRealmCodable() throws {
+        let mockUserData = """
+        {
+            "id": 2,
+            "name": "Ervin Howell",
+            "username": "Antonette",
+            "email": "Shanna@melissa.tv",
+            "address": {
+              "street": "Victor Plains",
+              "suite": "Suite 879",
+              "city": "Wisokyburgh",
+              "zipcode": "90566-7771",
+              "geo": {
+                "lat": "-43.9509",
+                "lng": "-34.4618"
+              }
+            },
+            "phone": "010-692-6593 x09125",
+            "website": "anastasia.net",
+            "company": {
+              "name": "Deckow-Crist",
+              "catchPhrase": "Proactive didactic contingency",
+              "bs": "synergize scalable supply-chains"
+            }
+          }
+        """
+        if let jsonData = mockUserData.data(using: .utf8) {
+            let decoder = JSONDecoder()
+            do {
+                let user = try decoder.decode(User.self, from: jsonData)
+                XCTAssertNotNil(user)
+            } catch {
+                XCTAssertNil(error)
+            }
         }
     }
-
+    
+    func testBadUserRealmCodable() throws {
+        let mockUserBadData = """
+        {
+            "id": 2,
+            "nume": "Ervin Howell",
+            "usernime": "Antonette",
+            "email": "Shanna@melissa.tv",
+            "address": {
+              "street": "Victor Plains",
+              "suite": "Suite 879",
+              "city": "Wisokyburgh",
+              "zipcode": "90566-7771",
+              "geo": {
+                "lat": "-43.9509",
+                "lng": "-34.4618"
+              }
+            },
+            "phone": "010-692-6593 x09125",
+            "website": "anastasia.net",
+            "company": {
+              "neme": "Deckow-Crist",
+              "catchPhrase": "Proactive didactic contingency",
+              "bs": "synergize scalable supply-chains"
+            }
+          }
+        """
+        if let jsonData = mockUserBadData.data(using: .utf8) {
+            let decoder = JSONDecoder()
+            do {
+                let user = try decoder.decode(User.self, from: jsonData)
+                XCTAssertNil(user)
+            } catch {
+                XCTAssertNotNil(error)
+            }
+        }
+    }
 }
