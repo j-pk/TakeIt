@@ -28,6 +28,8 @@
 		C0AAB9DE2A5C6AE000359F06 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9DD2A5C6AE000359F06 /* NetworkEndpoint.swift */; };
 		C0AAB9E12A5C6C6D00359F06 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E02A5C6C6D00359F06 /* URLProtocolMock.swift */; };
 		C0AAB9E52A5C6E3400359F06 /* TakeItNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E42A5C6E3400359F06 /* TakeItNetworkTests.swift */; };
+		C0AAB9E82A5C954600359F06 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E72A5C954600359F06 /* Database.swift */; };
+		C0AAB9EA2A5C9DBF00359F06 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E92A5C9DBF00359F06 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		C0AAB9DD2A5C6AE000359F06 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
 		C0AAB9E02A5C6C6D00359F06 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 		C0AAB9E42A5C6E3400359F06 /* TakeItNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeItNetworkTests.swift; sourceTree = "<group>"; };
+		C0AAB9E72A5C954600359F06 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		C0AAB9E92A5C9DBF00359F06 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,7 @@
 				C0AAB9CA2A5C611F00359F06 /* Post.swift */,
 				C0AAB9CC2A5C614200359F06 /* User.swift */,
 				C0AAB9CE2A5C614A00359F06 /* Comment.swift */,
+				C0AAB9E92A5C9DBF00359F06 /* UserViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			children = (
 				C0AAB9DF2A5C6B0E00359F06 /* Network */,
 				C0AAB9C92A5C610600359F06 /* Models */,
+				C0AAB9E72A5C954600359F06 /* Database.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -355,6 +361,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0AAB9CF2A5C614A00359F06 /* Comment.swift in Sources */,
+				C0AAB9EA2A5C9DBF00359F06 /* UserViewModel.swift in Sources */,
+				C0AAB9E82A5C954600359F06 /* Database.swift in Sources */,
 				C0AAB9DA2A5C653300359F06 /* SearchView.swift in Sources */,
 				C0AAB9D82A5C652100359F06 /* MainView.swift in Sources */,
 				C0AAB9CD2A5C614200359F06 /* User.swift in Sources */,

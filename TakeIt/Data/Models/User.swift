@@ -33,7 +33,7 @@ import RealmSwift
 }
 */
 
-class User: Object, Decodable {
+class User: Object, ObjectKeyIdentifiable, Decodable {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var name: String
     @Persisted var username: String

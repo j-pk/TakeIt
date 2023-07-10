@@ -16,7 +16,7 @@ import RealmSwift
  }
  */
 
-class Post: Object, Decodable {
+class Post: Object, ObjectKeyIdentifiable, Decodable {
     @Persisted(primaryKey: true) var id: Int
     @Persisted var userId: Int
     @Persisted var title: String
