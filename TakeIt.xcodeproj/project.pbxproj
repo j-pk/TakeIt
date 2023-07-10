@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C0AAB9962A5C3B7700359F06 /* TakeItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9952A5C3B7700359F06 /* TakeItApp.swift */; };
-		C0AAB9982A5C3B7700359F06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9972A5C3B7700359F06 /* ContentView.swift */; };
 		C0AAB99A2A5C3B7800359F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0AAB9992A5C3B7800359F06 /* Assets.xcassets */; };
 		C0AAB99D2A5C3B7800359F06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0AAB99C2A5C3B7800359F06 /* Preview Assets.xcassets */; };
 		C0AAB9A72A5C3B7900359F06 /* TakeItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9A62A5C3B7900359F06 /* TakeItTests.swift */; };
@@ -21,6 +20,14 @@
 		C0AAB9CB2A5C611F00359F06 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9CA2A5C611F00359F06 /* Post.swift */; };
 		C0AAB9CD2A5C614200359F06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9CC2A5C614200359F06 /* User.swift */; };
 		C0AAB9CF2A5C614A00359F06 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9CE2A5C614A00359F06 /* Comment.swift */; };
+		C0AAB9D42A5C64C800359F06 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9D32A5C64C800359F06 /* TabBar.swift */; };
+		C0AAB9D62A5C64EF00359F06 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9D52A5C64EF00359F06 /* TabBarView.swift */; };
+		C0AAB9D82A5C652100359F06 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9D72A5C652100359F06 /* MainView.swift */; };
+		C0AAB9DA2A5C653300359F06 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9D92A5C653300359F06 /* SearchView.swift */; };
+		C0AAB9DC2A5C6AB200359F06 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9DB2A5C6AB200359F06 /* Network.swift */; };
+		C0AAB9DE2A5C6AE000359F06 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9DD2A5C6AE000359F06 /* NetworkEndpoint.swift */; };
+		C0AAB9E12A5C6C6D00359F06 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E02A5C6C6D00359F06 /* URLProtocolMock.swift */; };
+		C0AAB9E52A5C6E3400359F06 /* TakeItNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E42A5C6E3400359F06 /* TakeItNetworkTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +50,6 @@
 /* Begin PBXFileReference section */
 		C0AAB9922A5C3B7700359F06 /* TakeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0AAB9952A5C3B7700359F06 /* TakeItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeItApp.swift; sourceTree = "<group>"; };
-		C0AAB9972A5C3B7700359F06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C0AAB9992A5C3B7800359F06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0AAB99C2A5C3B7800359F06 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C0AAB9A22A5C3B7800359F06 /* TakeItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TakeItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +60,14 @@
 		C0AAB9CA2A5C611F00359F06 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		C0AAB9CC2A5C614200359F06 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0AAB9CE2A5C614A00359F06 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		C0AAB9D32A5C64C800359F06 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		C0AAB9D52A5C64EF00359F06 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		C0AAB9D72A5C652100359F06 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C0AAB9D92A5C653300359F06 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		C0AAB9DB2A5C6AB200359F06 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		C0AAB9DD2A5C6AE000359F06 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
+		C0AAB9E02A5C6C6D00359F06 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		C0AAB9E42A5C6E3400359F06 /* TakeItNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeItNetworkTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				C0AAB9A62A5C3B7900359F06 /* TakeItTests.swift */,
+				C0AAB9E42A5C6E3400359F06 /* TakeItNetworkTests.swift */,
+				C0AAB9E02A5C6C6D00359F06 /* URLProtocolMock.swift */,
 			);
 			path = TakeItTests;
 			sourceTree = "<group>";
@@ -162,6 +178,7 @@
 		C0AAB9D02A5C615000359F06 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C0AAB9DF2A5C6B0E00359F06 /* Network */,
 				C0AAB9C92A5C610600359F06 /* Models */,
 			);
 			path = Data;
@@ -170,10 +187,30 @@
 		C0AAB9D12A5C615900359F06 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C0AAB9D22A5C64B700359F06 /* TabBar */,
 				C0AAB9952A5C3B7700359F06 /* TakeItApp.swift */,
-				C0AAB9972A5C3B7700359F06 /* ContentView.swift */,
+				C0AAB9D72A5C652100359F06 /* MainView.swift */,
+				C0AAB9D92A5C653300359F06 /* SearchView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		C0AAB9D22A5C64B700359F06 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C0AAB9D32A5C64C800359F06 /* TabBar.swift */,
+				C0AAB9D52A5C64EF00359F06 /* TabBarView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		C0AAB9DF2A5C6B0E00359F06 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C0AAB9DB2A5C6AB200359F06 /* Network.swift */,
+				C0AAB9DD2A5C6AE000359F06 /* NetworkEndpoint.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,10 +355,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0AAB9CF2A5C614A00359F06 /* Comment.swift in Sources */,
+				C0AAB9DA2A5C653300359F06 /* SearchView.swift in Sources */,
+				C0AAB9D82A5C652100359F06 /* MainView.swift in Sources */,
 				C0AAB9CD2A5C614200359F06 /* User.swift in Sources */,
+				C0AAB9D62A5C64EF00359F06 /* TabBarView.swift in Sources */,
+				C0AAB9DC2A5C6AB200359F06 /* Network.swift in Sources */,
 				C0AAB9CB2A5C611F00359F06 /* Post.swift in Sources */,
-				C0AAB9982A5C3B7700359F06 /* ContentView.swift in Sources */,
+				C0AAB9D42A5C64C800359F06 /* TabBar.swift in Sources */,
 				C0AAB9962A5C3B7700359F06 /* TakeItApp.swift in Sources */,
+				C0AAB9DE2A5C6AE000359F06 /* NetworkEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +372,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0AAB9A72A5C3B7900359F06 /* TakeItTests.swift in Sources */,
+				C0AAB9E52A5C6E3400359F06 /* TakeItNetworkTests.swift in Sources */,
+				C0AAB9E12A5C6C6D00359F06 /* URLProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

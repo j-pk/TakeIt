@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-
+ 
 @main
 struct TakeItApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView()
         }
     }
 }
