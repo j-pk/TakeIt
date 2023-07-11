@@ -127,3 +127,55 @@ class Company: EmbeddedObject, Decodable {
         bs = try container.decode(String.self, forKey: .bs)
     }
 }
+
+extension User {
+    static var sampleUser: User = {
+        let user = User()
+        user.id = 1
+        user.name = "Billy Bob"
+        user.username = "BillyBobUsername"
+        user.email = "BillyBobUsername@billysells.com"
+        user.phone = "6782156845"
+        user.website = "www.billysells.com"
+        
+        let address = Address()
+        address.street = "Elm Street"
+        address.suite = "Elm Suite"
+        address.city = "Elm City"
+        address.zipcode = "123"
+        
+        let geo = Geo()
+        geo.lat = "1110.0"
+        geo.lng = "1001.1"
+        
+        address.geo = geo
+        user.address = address
+        
+        let company = Company()
+        company.name = "Billy Sells Company"
+        company.catchPhrase = "Billy Sells Like Hell"
+        company.bs = "BS"
+        
+        user.company = company
+        
+        for indexValue in 1...10 {
+            let post = Post()
+            post.id = indexValue
+            post.userId = indexValue
+            post.title = "Post-It Send-It \(indexValue)"
+            post.body = "Post Body, Send Body \(indexValue)"
+            
+            let comment = Comment()
+            comment.postId = indexValue
+            comment.id = indexValue
+            comment.name = "Comment name"
+            comment.email = "this.is.a.comment@comments.com"
+            comment.body = "This is a comment."
+            post.comments.append(comment)
+
+            user.posts.append(post)
+        }
+        
+        return user
+    }()
+}

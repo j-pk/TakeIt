@@ -39,3 +39,16 @@ class Comment: Object, ObjectKeyIdentifiable, Decodable {
         body = try container.decode(String.self, forKey: .body)
     }
 }
+
+extension Comment {
+    static var sampleComment: Comment = {
+        let comment = Comment()
+        comment.postId = 1
+        comment.id = 1
+        comment.name = "Comment name"
+        comment.email = "this.is.a.comment@comments.com"
+        comment.body = "This is a comment."
+        return comment
+    }()
+}
+

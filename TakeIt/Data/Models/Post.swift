@@ -40,3 +40,27 @@ class Post: Object, ObjectKeyIdentifiable, Decodable {
         body = try container.decode(String.self, forKey: .body)
     }
 }
+
+extension Post {
+    static var samplePost: Post = {
+        let post = Post()
+        post.id = 1
+        post.userId = 1
+        post.title = "Post-It Send-It"
+        post.body = "Post Body, Send Body"
+        
+        for indexValue in 1...5 {
+            let comment = Comment()
+            comment.postId = indexValue
+            comment.id = indexValue
+            comment.name = "Comment \(indexValue)"
+            comment.email = "this.is.a.comment\(indexValue)@comments.com"
+            comment.body = "This is a comment."
+    
+            post.comments.append(comment)
+        }
+        
+        return post
+    }()
+
+}

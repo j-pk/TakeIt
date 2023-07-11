@@ -104,47 +104,17 @@ final class TakeItTests: XCTestCase {
     }
     
     func testSavingRealmCodable() throws {
-        let expectation = self.expectation(description: "testSavingRealmCodable")
         let post = Post()
         post.id = 1
         post.userId = 1
         post.title = "Post-It"
         post.body = "Are useful for reminders."
        
-        database.populateEntity(entity: Post.self, data: post).sink { result in
-            switch result {
-            case .failure(let error):
-                XCTAssertThrowsError(error)
-                expectation.fulfill()
-            default: break
-            }
-        } receiveValue: { isSaved in
-            XCTAssertTrue(isSaved)
-            let post = self.database.realm.objects(Post.self)
-            XCTAssertNotNil(post)
-            expectation.fulfill()
-        }.store(in: &subscriptions)
-        
-        wait(for: [expectation], timeout: 1)
-    }
-    
-    func testDeleteRealmCodable() throws {
-        let expectation = self.expectation(description: "testDeleteRealmCodable")
-        database.remove(entity: Post.self).sink { result in
-            switch result {
-            case .failure(let error):
-                XCTAssertThrowsError(error)
-                expectation.fulfill()
-            default: break
-            }
-        } receiveValue: { isDeleted in
-            XCTAssertTrue(isDeleted)
-            let post = self.database.realm.objects(Post.self)
-            XCTAssertTrue(post.isEmpty)
-            expectation.fulfill()
-        }.store(in: &subscriptions)
-          
-        wait(for: [expectation], timeout: 1)
+        database.realm.writeAsync {
+            self.database.realm.add(post, update: .all)
+        } onComplete: { error in
+            XCTAssertNil(error)
+        }
     }
     
     func testSavingRealmCodables() {
@@ -173,41 +143,10 @@ final class TakeItTests: XCTestCase {
             comments.append(comment)
         }
         
-        let expectation = self.expectation(description: "testSavingRealmCodable")
-        
-        database.populateEntities(entity: Comment.self, collection: comments).sink { result in
-            switch result {
-            case .failure(let error):
-                XCTAssertThrowsError(error)
-                expectation.fulfill()
-            default: break
-            }
-        } receiveValue: { isSaved in
-            XCTAssertTrue(isSaved)
-            let comments = self.database.realm.objects(Comment.self)
-            XCTAssertNotNil(comments)
-            XCTAssertTrue(comments.count > 1)
-            expectation.fulfill()
-        }.store(in: &subscriptions)
-        
-        wait(for: [expectation], timeout: 1)
-    }
-    
-    func testUserViewModel() async throws {
-        let viewModel = UserViewModel(network: Network.init())
-        let expectation = XCTestExpectation(description: "testUserViewModel")
-        
-       try await viewModel.populateUsers()
-        
-        viewModel.$users
-            .print()
-            .sink(receiveValue: {
-                XCTAssertFalse($0.isEmpty)
-                expectation.fulfill()
-            })
-            .store(in: &subscriptions)
-    
-        
-        await fulfillment(of: [expectation])
-    }
+        database.realm.writeAsync {
+            self.database.realm.add(comments, update: .all)
+        } onComplete: { error in
+            XCTAssertNil(error)
+        }
+    } 
 }

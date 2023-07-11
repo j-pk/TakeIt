@@ -58,3 +58,72 @@ public struct Network: NetworkEngine {
     }
     
 }
+ 
+extension Network {
+    func syncUsers() async throws -> [User]  {
+        let endpoint = Endpoint.syncUsers
+        let request = try endpoint.generateURLRequest()
+ 
+        return try await self.request(with: request, decodable: [User].self)
+    }
+    
+    func syncPosts() async throws -> [Post]  {
+        let endpoint = Endpoint.syncPosts
+        let request = try endpoint.generateURLRequest()
+
+        return try await self.request(with: request, decodable: [Post].self)
+    }
+    
+    func syncComments() async throws -> [Comment]  {
+        let endpoint = Endpoint.syncComments
+        let request = try endpoint.generateURLRequest()
+
+        return try await self.request(with: request, decodable: [Comment].self)
+    }
+}
+ 
+enum Endpoint: NetworkEndpoint {
+    case syncUsers
+    case syncPosts
+    case syncComments
+    
+    var baseURL: URL {
+        return URL(string: "https://jsonplaceholder.typicode.com")!
+    }
+    
+    var path: String {
+        switch self {
+        case .syncUsers :
+            return "/users"
+
+        case .syncPosts :
+            return "/posts"
+
+        case .syncComments:
+            return "/comments"
+        }
+    }
+    
+    var queryItems: HTTPParameters? {
+        return nil
+    }
+    
+    var bodyParameters: HTTPParameters? {
+        return nil
+    }
+    
+    var contentType: ContentType {
+        return .json
+    }
+    
+    var headers: [String : String]? {
+        return nil
+    }
+     
+    var httpMethod: HTTPMethod {
+        switch self {
+        default:
+            return .get
+        }
+    }
+}

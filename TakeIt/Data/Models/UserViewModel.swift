@@ -11,72 +11,78 @@ import RealmSwift
 
 class UserViewModel: ObservableObject {
     
-    @Published var users: [User] = []
-    
-    @ObservedResults(User.self) var fetchedUsers
-    
     private var network: Network
+    private var database: Database
     
-    init(network: Network) {
+    init(network: Network, database: Database) {
         self.network = network
+        self.database = database
     }
-
+    
+    @MainActor
     func populateUsers() async throws {
-        self.users = try await network.syncUsers()
-    }
-}
-
-extension Network {
-    func syncUsers() async throws -> [User]  {
-        let endpoint = Endpoint.syncUsers
-        let request = try endpoint.generateURLRequest()
- 
-        return try await self.request(with: request, decodable: [User].self)
-    }
-}
- 
-enum Endpoint: NetworkEndpoint {
-    case syncUsers
-    case syncUserPosts(userId: Int)
-    case syncUserComments(userId: Int)
-    
-    var baseURL: URL {
-        return URL(string: "https://jsonplaceholder.typicode.com")!
+        let users = try await network.syncUsers()
+        
+        database.realm.writeAsync {
+            self.database.realm.add(users, update: .all)
+        } onComplete: { error in
+            if let error = error {
+                print(error)
+            } else {
+               print("Added users")
+            }
+        }
+        try await populatePosts()
+        try await populateComments()
     }
     
-    var path: String {
-        switch self {
-        case .syncUsers :
-            return "/users"
-
-        case .syncUserPosts(userId: let userId):
-            return "/users/\(userId)/posts"
-
-        case .syncUserComments(userId: let userId):
-            return "/users/\(userId)/comments"
+    @MainActor
+    func populatePosts() async throws {
+        let posts = try await network.syncPosts()
+        let users = database.realm.objects(User.self)
+        
+        // keys are userIds
+        let userDictionary = Dictionary(uniqueKeysWithValues: users.map { ($0.id, $0) })
+        
+        database.realm.writeAsync {
+            self.database.realm.add(posts, update: .all)
+            posts.forEach { post in
+                // find user in the dictionary instead of querying Realm
+                if let user = userDictionary[post.userId] {
+                    user.posts.append(post)
+                }
+            }
+        } onComplete: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("Added posts")
+            }
         }
     }
     
-    var queryItems: HTTPParameters? {
-        return nil
-    }
-    
-    var bodyParameters: HTTPParameters? {
-        return nil
-    }
-    
-    var contentType: ContentType {
-        return .json
-    }
-    
-    var headers: [String : String]? {
-        return nil
-    }
-     
-    var httpMethod: HTTPMethod {
-        switch self {
-        default:
-            return .get
+    @MainActor
+    func populateComments() async throws {
+        let comments = try await network.syncComments()
+        let posts = database.realm.objects(Post.self)
+        
+        // keys are postIds
+        let postDictionary = Dictionary(uniqueKeysWithValues: posts.map { ($0.id, $0) })
+
+        database.realm.writeAsync {
+            self.database.realm.add(comments, update: .all)
+            comments.forEach { comment in
+                // find post in the dictionary instead of querying Realm
+                if let post = postDictionary[comment.postId] {
+                    post.comments.append(comment)
+                }
+            }
+        } onComplete: { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("Added comments")
+            }
         }
     }
 }

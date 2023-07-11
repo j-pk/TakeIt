@@ -23,13 +23,20 @@
 		C0AAB9D42A5C64C800359F06 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9D32A5C64C800359F06 /* TabBar.swift */; };
 		C0AAB9D62A5C64EF00359F06 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9D52A5C64EF00359F06 /* TabBarView.swift */; };
 		C0AAB9D82A5C652100359F06 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9D72A5C652100359F06 /* MainView.swift */; };
-		C0AAB9DA2A5C653300359F06 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9D92A5C653300359F06 /* SearchView.swift */; };
 		C0AAB9DC2A5C6AB200359F06 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9DB2A5C6AB200359F06 /* Network.swift */; };
 		C0AAB9DE2A5C6AE000359F06 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9DD2A5C6AE000359F06 /* NetworkEndpoint.swift */; };
 		C0AAB9E12A5C6C6D00359F06 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E02A5C6C6D00359F06 /* URLProtocolMock.swift */; };
 		C0AAB9E52A5C6E3400359F06 /* TakeItNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E42A5C6E3400359F06 /* TakeItNetworkTests.swift */; };
 		C0AAB9E82A5C954600359F06 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E72A5C954600359F06 /* Database.swift */; };
 		C0AAB9EA2A5C9DBF00359F06 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9E92A5C9DBF00359F06 /* UserViewModel.swift */; };
+		C0AAB9EE2A5CDF0E00359F06 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9ED2A5CDF0E00359F06 /* UsersView.swift */; };
+		C0AAB9F02A5CDF1900359F06 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9EF2A5CDF1900359F06 /* UserView.swift */; };
+		C0AAB9F22A5DC8EB00359F06 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9F12A5DC8EB00359F06 /* UserDetailView.swift */; };
+		C0AAB9F42A5DCAE600359F06 /* UserPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9F32A5DCAE600359F06 /* UserPostsView.swift */; };
+		C0AAB9F62A5DCF9E00359F06 /* UserPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9F52A5DCF9E00359F06 /* UserPostView.swift */; };
+		C0AAB9F82A5DD5C700359F06 /* UserCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9F72A5DD5C700359F06 /* UserCommentsView.swift */; };
+		C0AAB9FA2A5DE1E400359F06 /* UserCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9F92A5DE1E400359F06 /* UserCommentView.swift */; };
+		C0AAB9FC2A5DE3F900359F06 /* UserCommentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AAB9FB2A5DE3F900359F06 /* UserCommentDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,13 +72,20 @@
 		C0AAB9D32A5C64C800359F06 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		C0AAB9D52A5C64EF00359F06 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		C0AAB9D72A5C652100359F06 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		C0AAB9D92A5C653300359F06 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C0AAB9DB2A5C6AB200359F06 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		C0AAB9DD2A5C6AE000359F06 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
 		C0AAB9E02A5C6C6D00359F06 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 		C0AAB9E42A5C6E3400359F06 /* TakeItNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeItNetworkTests.swift; sourceTree = "<group>"; };
 		C0AAB9E72A5C954600359F06 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		C0AAB9E92A5C9DBF00359F06 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		C0AAB9ED2A5CDF0E00359F06 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		C0AAB9EF2A5CDF1900359F06 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		C0AAB9F12A5DC8EB00359F06 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		C0AAB9F32A5DCAE600359F06 /* UserPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsView.swift; sourceTree = "<group>"; };
+		C0AAB9F52A5DCF9E00359F06 /* UserPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostView.swift; sourceTree = "<group>"; };
+		C0AAB9F72A5DD5C700359F06 /* UserCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsView.swift; sourceTree = "<group>"; };
+		C0AAB9F92A5DE1E400359F06 /* UserCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentView.swift; sourceTree = "<group>"; };
+		C0AAB9FB2A5DE3F900359F06 /* UserCommentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,10 +207,9 @@
 		C0AAB9D12A5C615900359F06 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C0AAB9EB2A5CDEF200359F06 /* Views */,
 				C0AAB9D22A5C64B700359F06 /* TabBar */,
 				C0AAB9952A5C3B7700359F06 /* TakeItApp.swift */,
-				C0AAB9D72A5C652100359F06 /* MainView.swift */,
-				C0AAB9D92A5C653300359F06 /* SearchView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -217,6 +230,46 @@
 				C0AAB9DD2A5C6AE000359F06 /* NetworkEndpoint.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C0AAB9EB2A5CDEF200359F06 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0AAB9FE2A5DF8D000359F06 /* Comments */,
+				C0AAB9FD2A5DF8CA00359F06 /* Posts */,
+				C0AAB9EC2A5CDEFE00359F06 /* Users */,
+				C0AAB9D72A5C652100359F06 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C0AAB9EC2A5CDEFE00359F06 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				C0AAB9ED2A5CDF0E00359F06 /* UsersView.swift */,
+				C0AAB9EF2A5CDF1900359F06 /* UserView.swift */,
+				C0AAB9F12A5DC8EB00359F06 /* UserDetailView.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		C0AAB9FD2A5DF8CA00359F06 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				C0AAB9F32A5DCAE600359F06 /* UserPostsView.swift */,
+				C0AAB9F52A5DCF9E00359F06 /* UserPostView.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		C0AAB9FE2A5DF8D000359F06 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				C0AAB9F72A5DD5C700359F06 /* UserCommentsView.swift */,
+				C0AAB9FB2A5DE3F900359F06 /* UserCommentDetails.swift */,
+				C0AAB9F92A5DE1E400359F06 /* UserCommentView.swift */,
+			);
+			path = Comments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,18 +413,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0AAB9F22A5DC8EB00359F06 /* UserDetailView.swift in Sources */,
+				C0AAB9F02A5CDF1900359F06 /* UserView.swift in Sources */,
 				C0AAB9CF2A5C614A00359F06 /* Comment.swift in Sources */,
 				C0AAB9EA2A5C9DBF00359F06 /* UserViewModel.swift in Sources */,
 				C0AAB9E82A5C954600359F06 /* Database.swift in Sources */,
-				C0AAB9DA2A5C653300359F06 /* SearchView.swift in Sources */,
 				C0AAB9D82A5C652100359F06 /* MainView.swift in Sources */,
 				C0AAB9CD2A5C614200359F06 /* User.swift in Sources */,
+				C0AAB9FA2A5DE1E400359F06 /* UserCommentView.swift in Sources */,
 				C0AAB9D62A5C64EF00359F06 /* TabBarView.swift in Sources */,
 				C0AAB9DC2A5C6AB200359F06 /* Network.swift in Sources */,
 				C0AAB9CB2A5C611F00359F06 /* Post.swift in Sources */,
+				C0AAB9EE2A5CDF0E00359F06 /* UsersView.swift in Sources */,
 				C0AAB9D42A5C64C800359F06 /* TabBar.swift in Sources */,
+				C0AAB9F82A5DD5C700359F06 /* UserCommentsView.swift in Sources */,
+				C0AAB9FC2A5DE3F900359F06 /* UserCommentDetails.swift in Sources */,
 				C0AAB9962A5C3B7700359F06 /* TakeItApp.swift in Sources */,
+				C0AAB9F62A5DCF9E00359F06 /* UserPostView.swift in Sources */,
 				C0AAB9DE2A5C6AE000359F06 /* NetworkEndpoint.swift in Sources */,
+				C0AAB9F42A5DCAE600359F06 /* UserPostsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
