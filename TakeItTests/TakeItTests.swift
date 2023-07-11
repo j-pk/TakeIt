@@ -148,5 +148,5 @@ final class TakeItTests: XCTestCase {
         } onComplete: { error in
             XCTAssertNil(error)
         }
-    } 
+    }
 }
