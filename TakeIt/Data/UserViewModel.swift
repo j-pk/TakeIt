@@ -56,15 +56,11 @@ class UserViewModel: ObservableObject {
     private func populatePosts() async throws {
         let posts = try await network.syncPosts()
         let users = database.realm.objects(User.self)
-        
-        // keys are userIds
-        let userDictionary = Dictionary(uniqueKeysWithValues: users.map { ($0.id, $0) })
-        
+     
         database.realm.writeAsync {
             self.database.realm.add(posts, update: .all)
             posts.forEach { post in
-                // find user in the dictionary instead of querying Realm
-                if let user = userDictionary[post.userId] {
+                if let user = users.first(where: { $0.id == post.userId }) {
                     user.posts.append(post)
                 }
             }
@@ -81,15 +77,11 @@ class UserViewModel: ObservableObject {
     private func populateComments() async throws {
         let comments = try await network.syncComments()
         let posts = database.realm.objects(Post.self)
-        
-        // keys are postIds
-        let postDictionary = Dictionary(uniqueKeysWithValues: posts.map { ($0.id, $0) })
-
+    
         database.realm.writeAsync {
             self.database.realm.add(comments, update: .all)
             comments.forEach { comment in
-                // find post in the dictionary instead of querying Realm
-                if let post = postDictionary[comment.postId] {
+                 if let post = posts.first(where: { $0.id == comment.postId }) {
                     post.comments.append(comment)
                 }
             }
