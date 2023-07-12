@@ -10,7 +10,8 @@ import Combine
 import RealmSwift
 
 class UserViewModel: ObservableObject {
-    
+    @Published var error: Error?
+
     private var network: Network
     private var database: Database
     
@@ -19,7 +20,22 @@ class UserViewModel: ObservableObject {
         self.database = database
     }
     
+    var userCount: Int {
+        database.realm.objects(User.self).count
+    }
+    
+    var postCount: Int {
+        database.realm.objects(Post.self).count
+    }
+    
+    var commentCount: Int {
+        database.realm.objects(Comment.self).count
+    }
+    
     @MainActor
+    /// Makes a `Network` request for `[User]` and populates data with `Database` using `Realm.writeAsync`
+    /// Initiates async `populatePosts` & `populateComments`
+    /// https://www.mongodb.com/docs/realm/sdk/swift/swift-concurrency/#tasks-and-taskgroups
     func populateUsers() async throws {
         let users = try await network.syncUsers()
         
@@ -28,8 +44,7 @@ class UserViewModel: ObservableObject {
         } onComplete: { error in
             if let error = error {
                 print(error)
-            } else {
-               print("Added users")
+                self.error = error
             }
         }
         try await populatePosts()
@@ -37,7 +52,8 @@ class UserViewModel: ObservableObject {
     }
     
     @MainActor
-    func populatePosts() async throws {
+    /// Makes a `Network` request for `[Post]` and populates data with `Database` using `Realm.writeAsync`
+    private func populatePosts() async throws {
         let posts = try await network.syncPosts()
         let users = database.realm.objects(User.self)
         
@@ -55,14 +71,14 @@ class UserViewModel: ObservableObject {
         } onComplete: { error in
             if let error = error {
                 print(error)
-            } else {
-                print("Added posts")
+                self.error = error
             }
         }
     }
     
     @MainActor
-    func populateComments() async throws {
+    /// Makes a `Network` request for `[Comment]` and populates data with `Database` using `Realm.writeAsync`
+    private func populateComments() async throws {
         let comments = try await network.syncComments()
         let posts = database.realm.objects(Post.self)
         
@@ -80,9 +96,8 @@ class UserViewModel: ObservableObject {
         } onComplete: { error in
             if let error = error {
                 print(error)
-            } else {
-                print("Added comments")
-            }
+                self.error = error
+            } 
         }
     }
 }

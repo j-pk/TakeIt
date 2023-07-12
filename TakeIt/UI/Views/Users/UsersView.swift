@@ -10,10 +10,12 @@ import RealmSwift
 
 struct UsersView: View {
     @ObservedResults(User.self) var fetchedUsers
-   
+    @ObservedObject var viewModel: UserViewModel
+    @State var displayPopover = false
+
     // Allows for multiple columns
-    private var gridItemLayout = [GridItem(.flexible())]
-    
+    var gridItemLayout = [GridItem(.flexible())]
+ 
     var body: some View {
         ScrollView {
             // More performant than List which renders views immediately
@@ -22,7 +24,6 @@ struct UsersView: View {
                     UserView(user: user)
                 }
             }
-            
         }
         .padding()
         .navigationBarTitle(Text("⚯͛ Parker's Rethink Interview"))
@@ -31,9 +32,26 @@ struct UsersView: View {
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbar {
             Button("Count") {
-                print("This displays count values for Realm objects")
+                self.displayPopover = true
+            }
+            .sheet(isPresented: $displayPopover) {
+                ShadowedText(text: "Users count", count: viewModel.userCount)
+                ShadowedText(text: "Posts count", count: viewModel.postCount)
+                ShadowedText(text: "Comments count", count: viewModel.commentCount)
             }
         }
     }
 }
  
+struct ShadowedText: View {
+    var text: String
+    var count: Int
+
+    var body: some View {
+        Text("\(text) \(count)")
+            .font(.system(size: 30, weight: .bold))
+            .foregroundColor(Color.purple)
+            .shadow(color: Color.gray, radius: 2, x: 0, y: 2)
+            .accessibilityLabel("\(text) \(count)")
+    }
+}

@@ -14,7 +14,7 @@ struct MainView: View {
  
     var body: some View {
         NavigationView {
-            UsersView()
+            UsersView(viewModel: viewModel)
             .task {
                 try? await viewModel.populateUsers()
             }

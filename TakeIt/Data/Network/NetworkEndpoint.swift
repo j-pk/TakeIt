@@ -11,17 +11,15 @@ public typealias HTTPParameters = [String: Any]
 
 // MARK: HTTPMethod
 public enum HTTPMethod: String {
-    case get     = "GET"
-    case post    = "POST"
+    case get     = "GET" 
 }
 
 // MARK: Content Types
 public enum ContentType: String {
     case json = "application/json"
 }
-
-// MARK: Enums
-// MARK: Network Error
+ 
+// MARK: Network Error Enum
 public enum NetworkError: Error, LocalizedError {
     case requestGenerationFailed
     case invalidServerResponseWith(statusCode: Int, response: HTTPURLResponse?)

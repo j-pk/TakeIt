@@ -21,7 +21,7 @@ public struct Network: NetworkEngine {
         self.decoder = decoder
     }
     
-    /// Returns a <Decodable> from URL session data task for a given router.
+    /// Returns a <Decodable> from URL session data task for a given endpoint.
     ///
     /// - Parameters:
     ///   - endpoint: NetworkEndpoint.
@@ -60,6 +60,8 @@ public struct Network: NetworkEngine {
 }
  
 extension Network {
+    /// Generates a `URLRequest` that returns a `[User]` from `Network`
+    /// - Returns: `[User]`
     func syncUsers() async throws -> [User]  {
         let endpoint = Endpoint.syncUsers
         let request = try endpoint.generateURLRequest()
@@ -67,6 +69,8 @@ extension Network {
         return try await self.request(with: request, decodable: [User].self)
     }
     
+    /// Generates a `URLRequest` that returns a `[Post]` from `Network`
+    /// - Returns: `[Post]`
     func syncPosts() async throws -> [Post]  {
         let endpoint = Endpoint.syncPosts
         let request = try endpoint.generateURLRequest()
@@ -74,6 +78,8 @@ extension Network {
         return try await self.request(with: request, decodable: [Post].self)
     }
     
+    /// Generates a `URLRequest` that returns a `[Comment]` from `Network`
+    /// - Returns: `[Comment]`
     func syncComments() async throws -> [Comment]  {
         let endpoint = Endpoint.syncComments
         let request = try endpoint.generateURLRequest()
