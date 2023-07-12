@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UserCommentView: View {
+    @State private var isHidden = false
+    
     var comment: Comment
     
     var body: some View {
@@ -18,17 +20,22 @@ struct UserCommentView: View {
                 .accessibilityLabel("\(comment.name)")
                 .foregroundColor(Color.yellow)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            Text("\(comment.email)")
-                .font(.subheadline)
-                .accessibilityLabel("\(comment.email)")
-                .foregroundColor(Color.yellow)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Divider()
-                .padding(EdgeInsets(top: -6, leading: 2, bottom: 0, trailing: 2))
-            Text("\(comment.body)")
-                .font(.caption)
-                .accessibilityLabel("\(comment.body)")
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .onTapGesture {
+                    isHidden.toggle()
+                }
+            if !isHidden {
+                Text("\(comment.email)")
+                    .font(.subheadline)
+                    .accessibilityLabel("\(comment.email)")
+                    .foregroundColor(Color.yellow)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Divider()
+                    .padding(EdgeInsets(top: -6, leading: 2, bottom: 0, trailing: 2))
+                Text("\(comment.body)")
+                    .font(.caption)
+                    .accessibilityLabel("\(comment.body)")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
          }
         .padding()
         .frame(maxWidth: .infinity)
